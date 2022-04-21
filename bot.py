@@ -39,12 +39,12 @@ async def BotzHub():
                 await user_bot.edit_message(
                     int(chnl_id),
                     msg_id,
-                    "**@EDM115 Bots Stats**\n\n`Performing a periodic check…`",
+                    "--@EDM115 bots status--\n\n`Performing a periodic check…`",
                 )
             except MessageNotModifiedError:
                 pass
             c = 0
-            edit_text = "**@EDM115 Bots Stats**\n\n"
+            edit_text = "--@EDM115 bots status--\n\n**Heyo everyone 🥺**\nHere is the list of my bots, and if they are running or no :"
             for bot in bots:
                 try:
                     logging.info(f"[INFO] checking @{bot}")
@@ -67,24 +67,24 @@ async def BotzHub():
                     msg = history.messages[0].id
                     if snt.id == msg:
                         logging.info(f"@{bot} is down")
-                        edit_text += f"@{bot} • ❌ offline\n"
+                        edit_text += f"`@{bot}` • **❌ Offline for the moment, come back later**\n"
                     elif snt.id + 1 == msg:
-                        edit_text += f"@{bot} • ✅ online\n"
+                        edit_text += f"@{bot} • **✅ Up & online**\n"
                     await user_bot.send_read_acknowledge(bot)
                     c += 1
                 except FloodWaitError as f:
                     logging.info(f"Floodwait !\n\nSleeping for {f.seconds}…")
                     sleep(f.seconds + 10)
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
-            k = pytz.timezone("Asia/Kolkata")
+            k = pytz.timezone("Europe/Paris")
             month = dt.now(k).strftime("%B")
             day = dt.now(k).strftime("%d")
             year = dt.now(k).strftime("%Y")
             t = dt.now(k).strftime("%H:%M:%S")
-            edit_text += f"\n**Last Checked :** \n`{t} - {day} {month} {year} [IST]`\n\n__Bots status are auto-updated every hour__"
+            edit_text += f"\n__Last check :__ \n`{t} • {day} {month} {year} [GMT+1]`\n__Bots status are auto-updated every hour ☺️__\n\nYou can dm me here : **@EDM115**\nHave a good day, and subscribe for more news about the existing bots updates and the upcoming ones… 😏💓"
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
-            logging.info(f"Checks since last restart - {c}")
-            logging.info("Sleeping for 1 hour") # we use workflows here.
+            logging.info(f"Checks since latest restart : {c}")
+            logging.info("Sleeping for 1 hour") # we use workflows here
             if c != 0:
                 break
 
