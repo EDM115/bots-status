@@ -39,12 +39,12 @@ async def BotzHub():
                 await user_bot.edit_message(
                     int(chnl_id),
                     msg_id,
-                    "<u>@EDM115 bots status</u>\n\n`Performing a periodic check…`",
+                    "@EDM115 bots status\n\n`Performing a periodic check…`",
                 )
             except MessageNotModifiedError:
                 pass
             c = 0
-            edit_text = "<u>@EDM115 bots status</u>\n\n**Heyo everyone 🥺**\nHere is the list of my bots, and if they are running or no :\n\n"
+            edit_text = "@EDM115 bots status\n\n**Heyo everyone 🥺**\nHere is the list of my bots, and if they are running or no :\n\n"
             for bot in bots:
                 try:
                     logging.info(f"[INFO] checking @{bot}")
