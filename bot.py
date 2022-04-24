@@ -39,7 +39,7 @@ async def BotzHub():
                 await user_bot.edit_message(
                     int(chnl_id),
                     msg_id,
-                    "@EDM115 bots status\n\n`Performing a periodic check…`",
+                    "@EDM115 bots status\n\n`Performing a periodic check… ⏳`",
                 )
             except MessageNotModifiedError:
                 pass
@@ -81,7 +81,7 @@ async def BotzHub():
             day = dt.now(k).strftime("%d")
             year = dt.now(k).strftime("%Y")
             t = dt.now(k).strftime("%H:%M:%S")
-            edit_text += f"\n__Last check :__ \n`{t} • {day} {month} {year} [GMT+1]`\n__(bots status are auto-updated every hour ☺️)__\n\nYou can dm me here if there’s any problem : **@EDM115**\nHave a good day, and subscribe for more news about the existing bots updates and the upcoming ones… 😏💓"
+            edit_text += f"\n__Last check :__ \n`{t} • {day} {month} {year} [UTC+1]`\n__(bots status are auto-updated every hour ☺️)__\n\nYou can dm me here if there’s any problem : **@EDM115**\nHave a good day, and subscribe for more news about the existing bots updates and the upcoming ones… 😏💓"
             await user_bot.edit_message(int(chnl_id), int(msg_id), edit_text)
             logging.info(f"Checks since latest restart : {c}")
             logging.info("Sleeping for 1 hour") # we use workflows here
