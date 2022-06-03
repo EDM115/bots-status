@@ -94,4 +94,4 @@ try:
 except AuthKeyDuplicatedError:
     logging.warning("Session string expired. Create a new one")
 
-logger.info("\nProcess Completed Successfully 😌")
+logging.info("\nProcess Completed Successfully 😌")
